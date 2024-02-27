@@ -9,7 +9,7 @@ export default class Login {
     if (user.password !== input.password) throw new Error('Authentication failed');
     return {
       name: user.name,
-      token: '12345',
+      token: '12345678',
     };
   }
 }

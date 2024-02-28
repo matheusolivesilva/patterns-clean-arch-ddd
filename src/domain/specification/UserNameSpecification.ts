@@ -1,4 +1,4 @@
-import User from '../entity/User'
+import User from '../entity/UserWithSpecification'
 import { AbstractSpecification } from './Specification'
 
 export default class UserNameSpecification extends AbstractSpecification<User> {

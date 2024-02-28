@@ -21,7 +21,7 @@ test('Should not create a user with invalid name', () => {
     'matthew@gmail.com',
     '12345678',
     28
-  )).toThrow(new Error('Invalid name'));
+  )).toThrow(new Error('Invalid parameter'));
 });
 
 
@@ -31,7 +31,7 @@ test('Should not create a user with invalid email', () => {
     'matthew@gmail',
     '12345678',
     28
-  )).toThrow(new Error('Invalid email'));
+  )).toThrow(new Error('Invalid parameter'));
 });
 
 test('Should not create a user with invalid password', () => {
@@ -40,7 +40,7 @@ test('Should not create a user with invalid password', () => {
     'matthew@gmail.com',
     '12345',
     28
-  )).toThrow(new Error('Invalid password'));
+  )).toThrow(new Error('Invalid parameter'));
 });
 
 test('Should not create a user with invalid age', () => {
@@ -49,5 +49,5 @@ test('Should not create a user with invalid age', () => {
     'matthew@gmail.com',
     '12345678',
     17
-  )).toThrow(new Error('Invalid age'));
+  )).toThrow(new Error('Invalid parameter'));
 });

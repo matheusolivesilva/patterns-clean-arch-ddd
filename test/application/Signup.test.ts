@@ -33,5 +33,5 @@ test('Should not signup when the name is invalid', async () => {
     password: '12345678',
     age: 28
   }
-  expect(() => signup.execute(inputSignup)).rejects.toThrow(new Error('Invalid name'));
+  expect(() => signup.execute(inputSignup)).rejects.toThrow(new Error('Invalid parameter'));
 });

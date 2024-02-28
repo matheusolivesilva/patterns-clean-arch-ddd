@@ -1,3 +1,8 @@
+import UserAgeSpecification from '../specification/UserAgeSpecification';
+import UserEmailSpecification from '../specification/UserEmailSpecification';
+import UserNameSpecification from '../specification/UserNameSpecification';
+import UserPasswordSpecification from '../specification/UserPasswordSpecification';
+
 export default class User {
   constructor(
     readonly name: string, 
@@ -5,18 +10,18 @@ export default class User {
     readonly password: string, 
     readonly age: number
     ) {
-      if (this.name.split(' ').length < 2) throw new Error ('Invalid name');
+      const nameSpecification = new UserNameSpecification();
+      const emailSpecification = new UserEmailSpecification();
+      const passwordSpecification = new UserPasswordSpecification();
+      const ageSpecification = new UserAgeSpecification();
 
-      if(!String(this.email).toLowerCase().match(/^[\w-]+(\.[\w-]+)*@([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/)) {
-          throw new Error('Invalid email');
-      }
-
-      if (this.password.length < 6) {
-        throw new Error('Invalid password');
-      }
-
-      if (this.age < 18) {
-        throw new Error('Invalid age');
+      if (!
+            nameSpecification
+            .and(emailSpecification)
+            .and(passwordSpecification)
+            .and(ageSpecification)
+            .isSatisfiedBy(this)) {
+        throw new Error('Invalid parameter');
       }
     }
 }

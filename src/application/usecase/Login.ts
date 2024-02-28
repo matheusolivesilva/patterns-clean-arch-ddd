@@ -6,9 +6,10 @@ export default class Login {
   async execute(input: Input): Promise<Output> {
     const user = await this.userRepository.getByEmail(input.email);
     if (!user) throw new Error('Authentication failed');
-    if (user.password !== input.password) throw new Error('Authentication failed');
+    const isValidPassword = await user.validatePassword(input.password);
+    if (!isValidPassword) throw new Error('Authentication failed');
     return {
-      name: user.name,
+      name: user.name.getValue(),
       token: '12345678',
     };
   }

@@ -1,3 +1,4 @@
+import TokenGenerator from '../../domain/service/TokenGenerator';
 import UserRepository from '../repository/UserRepository';
 
 export default class Login {
@@ -8,9 +9,11 @@ export default class Login {
     if (!user) throw new Error('Authentication failed');
     const isValidPassword = await user.validatePassword(input.password);
     if (!isValidPassword) throw new Error('Authentication failed');
+    const tokenGenerator = new TokenGenerator('secret');
+    const token = tokenGenerator.generate(user, 100000, new Date('2023-03-01T10:00:00'));
     return {
       name: user.name.getValue(),
-      token: '12345678',
+      token 
     };
   }
 }

@@ -21,5 +21,5 @@ test('Should signup', async () => {
   const output = await login.execute(inputLogin);
 
   expect(output.name).toBe('Matthew Olivier');
-  expect(output.token).toBe('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6eyJ2YWx1ZSI6Im1hdHRoZXdAZ21haWwuY29tIn0sImlhdCI6MTY3NzY3NTYwMDAwMCwiZXhwaXJlc0luIjoxMDAwMDB9.m71XjxDNAGqTJvAfTtGpERoFYmV-IhB3H63TjrNRAdY');
+  expect(output.token).toBe('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdHRoZXdAZ21haWwuY29tIiwiaWF0IjoxNjc3Njc1NjAwMDAwLCJleHBpcmVzSW4iOjEwMDAwMDAwMDB9.jJVPOkfHttJdT5xSVDrIqqbk69QOM2L3kC1HUKzk1FI');
 });

@@ -9,6 +9,7 @@ export default class User {
     readonly password: Password, 
     readonly age: number
     ) {
+      if (age < 18) throw new Error('Invalid age');
     }
 
     static async create(
@@ -17,11 +18,18 @@ export default class User {
       password: string, 
       age: number
     ) {
-      if (age < 18) throw new Error('Invalid age');
-      if (password.length < 8) throw new Error('Invalid password');
       return new User(new Name(name), new Email(email), await Password.create(password, 'salt'), age);
     }
 
+    static async buildExistingUser (name: string, email: string, hashPassword: string, salt: string, age: number) {
+      return new User(
+        new Name(name),
+        new Email(email) ,
+        new Password(hashPassword, salt),
+        age
+      );
+
+    }
     validatePassword(password: string) {
       return this.password.validate(password);
     }

@@ -20,6 +20,8 @@ test('Should signup', async () => {
   }
   const output = await login.execute(inputLogin);
 
+  const expectedToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdHRoZXdAZ21haWwuY29tIiwiaWF0IjoxNjc3NjY0ODAwMDAwLCJleHBpcmVzSW4iOjEwMDAwMDAwMDB9.2stMx-d6Mv5rOEKJOim1Zg-vvrwHpjHAi4muO5Bh-9c';
   expect(output.name).toBe('Matthew Olivier');
-  expect(output.token).toBe('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdHRoZXdAZ21haWwuY29tIiwiaWF0IjoxNjc3Njc1NjAwMDAwLCJleHBpcmVzSW4iOjEwMDAwMDAwMDB9.jJVPOkfHttJdT5xSVDrIqqbk69QOM2L3kC1HUKzk1FI');
+  expect(output.token).toBe(expectedToken);
 });
+

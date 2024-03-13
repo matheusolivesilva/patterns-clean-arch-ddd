@@ -15,6 +15,7 @@ This simple project has one simple and straightforward objective: To implements 
         - [Enterprise/Domain Layer](#enterprisedomain-layer)
         - [Frameworks & Drivers (or Infrastructure) Layer](#frameworks--drivers-or-infrastructure-layer)
     - [A Taste of DDD](#a-taste-of-ddd)
+        - [Value Objects](#value-objects)
         - [Entity](#entity)
         - [Domain Service](#domain-service)
     - [Some of Patterns Applied](#some-of-patterns-applied)

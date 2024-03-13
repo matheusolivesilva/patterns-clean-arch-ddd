@@ -20,6 +20,7 @@ This simple project has one simple and straightforward objective: To implements 
         - [Domain Service](#domain-service)
     - [Some of Patterns Applied](#some-of-patterns-applied)
         - [Repository](#repository)
+        - [Static Factory Method](#static-factory-method)
         - [Specification](#specification)
 - [⚙️ Made With](#%EF%B8%8F-made-with)
 - [🧑🏻‍💻 Author](#-author)
@@ -101,7 +102,7 @@ A Value Object is a type of object that is defined solely by its value and is im
 As you can see, the classes above are quite simple and don't carry a lot of business logics such as entities or uses cases, they're simple and straightforward.
 
 #### Entity:
-Entity is a domain object that is defined by its characteristics, such as: Indentity, Lifecycle, Mutability, Equality and Behavior. This system has the `User` class which is and entity with some behaviours and more complex details than a Value Object.
+Entity is a domain object that is defined by its characteristics, such as: Indentity, Lifecycle, Mutability, Equality and Behavior. This system has the `User` class which is an entity with some behaviours and more complex details than a Value Object.
 
 #### Domain Service:
 A Domain Service encapsulates domain logic that's not attrubuted to a single entity, it orchestrates complex business processes envolving different entities. Here you'll see only the `TokenGenerator` service, which business logic didn't fit into any entity, so it was separated inside a service class that uses `User` class.
@@ -110,7 +111,7 @@ A Domain Service encapsulates domain logic that's not attrubuted to a single ent
 Here you'll see some of the patterns applied in this project, they can work with DDD, Clean Architecture or alone in another architecture.
 
 #### Repository:
-Repository pattern is a pattern that provides a way to manage de data access in a centralized location. It fetches the data into a database, API or other persistence places and maps it to the entity.
+Repository pattern is a pattern that provides a way to manage data access in a centralized location. It fetches the data into a database, API or other persistence places and maps it to the entity.
 
 An example of repository and its implementation are both the interface `UserRepository` in application layer and the concrete class `UserRepositoryMemory` in infra layer. The `UserRepositoryMemory` is just an in memory implementation of a repository, here we would have the implementation logic of a database connection with its queries or API calls. As always, there's a class that "uses" the repository interface via independence inversion, these classes are the `SignUp` and `Login` usecases. Below we can see an diagram with this pattern:
 ```mermaid
@@ -133,9 +134,9 @@ classDiagram
         + execute(Input input) void
     }
 ```
-```
+
 #### Static Factory Method:
-There's some implementation of factories in this project, but we will focus on `User` class, where it has a private constructor and the only way to create an instance is using one of its factory methods `create()` or `buildExistingUser()`. This pattern name is self explanatory, we have a static method in the class that create the method for us. 
+There's an implementation of factories in this project, we will focus on `User` class, where it has a private constructor and the only way to create an instance is using one of its factory methods `create()` or `buildExistingUser()`. This pattern name is self explanatory, we have a static method in the class that create the method for us. 
 ```mermaid
 classDiagram
       class User {      

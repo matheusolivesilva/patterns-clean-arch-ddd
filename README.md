@@ -8,8 +8,18 @@ This simple project has one simple and straightforward objective: To implements 
 - [🚀 How to Run?](#-how-to-run)
     - [🐋 Using Docker](#-using-docker)
     - [💻 Your Local Machine](#-your-local-machine)
-- [📝 Patterns and Concepts](#-solid-principles)
-    - [Pattern 1](#pattern-1)     
+- [✅ How to Test?](#-how-to-test)
+- [📝 Clean Architecture, Concepts of DDD and Patterns](#-clean-architecture-concepts-of-ddd-and-patterns)
+    - [Clean Architecture](#clean-architecture)
+        - [Application Layer](#application-layer)
+        - [Enterprise/Domain Layer](#enterprisedomain-layer)
+        - [Frameworks & Drivers (or Infrastructure) Layer](#frameworks--drivers-or-infrastructure-layer)
+    - [A Taste of DDD](#a-taste-of-ddd)
+        - [Entity](#entity)
+        - [Domain Service](#domain-service)
+    - [Some of Patterns Applied](#some-of-patterns-applied)
+        - [Repository](#repository)
+        - [Specification](#specification)
 - [⚙️ Made With](#%EF%B8%8F-made-with)
 - [🧑🏻‍💻 Author](#-author)
 
@@ -45,7 +55,7 @@ Run the command bellow, the tests will be attached to your terminal for you to h
 foo@bar:~$ npm test
 ```
 
-## How to Test?
+## ✅ How to Test?
 You can test running:
 ```console
 foo@bar:~$ npm test
